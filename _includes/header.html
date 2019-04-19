@@ -13,6 +13,9 @@
 {% if page.path contains '_posts' %}
   {% assign page_title = page.title %}
   {% assign meta_description = page.content | strip_html | strip_newlines | xml_escape | truncate: 300 %}
+{% else if page.path contains 'public' %}
+  {% assign page_title = page.title %}
+  {% assign meta_description = user.bio | strip_html | strip_newlines | xml_escape | truncate: 300 %}
 {% else %}
   {% assign page_title = user.name %}
   {% assign meta_description = user.bio | strip_html | strip_newlines | xml_escape | truncate: 300 %}
